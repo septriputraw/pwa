@@ -66,6 +66,22 @@ workbox.routing.registerRoute(
   })
 );
 
+workbox.routing.registerRoute(
+  new RegExp('https://crests.football-data.org/'),
+  new workbox.strategies.StaleWhileRevalidate({
+    cacheName: 'api-img',
+    plugins: [
+      new workbox.cacheableResponse.CacheableResponsePlugin({
+        statuses: [0, 200],
+      }),
+      new workbox.expiration.ExpirationPlugin({
+        maxAgeSeconds: 60 * 60 * 24 * 365,
+        maxEntries: 30,
+      }),
+    ],
+  })
+);
+
 // Menyimpan cache dari JQuery
 workbox.routing.registerRoute(
   /^https:\/\/code\.jquery\.com/,
