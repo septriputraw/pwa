@@ -4,39 +4,6 @@ if (workbox)
 else
   console.log(`Workbox gagal dimuat`);
 
-//const CACHE_NAME = "footballqv2";
-/*var urlsToCache = [
-  "/",
-  "/nav.html",
-  "/index.html",
-  "/player.html",
-  "/team.html",
-  "/manifest.json",
-  "/pages/home.html",
-  "/pages/about.html",
-  "/pages/contact.html",
-  "/pages/scorer.html",
-  "/pages/saved.html",
-  "/assets/images/icons/icon-72x72.png",
-  "/assets/images/icons/icon-96x96.png",
-  "/assets/images/icons/icon-128x128.png",
-  "/assets/images/icons/icon-144x144.png",
-  "/assets/images/icons/icon-152x152.png",
-  "/assets/images/icons/icon-192x192.png",
-  "/assets/images/icons/icon-384x384.png",
-  "/assets/images/icons/icon-512x512.png",
-  "/css/materialize.min.css",
-  "/css/style.css",
-  "/js/materialize.min.js",
-  "/js/nav.js",
-  "/js/db.js",
-  "/js/api.js",
-  "/js/idb.js",
-  "http://code.jquery.com/jquery-2.2.1.min.js",
-  "https://fonts.googleapis.com/icon?family=Material+Icons",
-  "https://fonts.gstatic.com/s/materialicons/v55/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2"
-];*/
-
 //caching
 workbox.precaching.precacheAndRoute([
   {url: '/index.html', revision: '1'},
@@ -44,6 +11,11 @@ workbox.precaching.precacheAndRoute([
   {url: '/team.html', revision: '1'},
   {url: '/player.html', revision: '1'},
   {url: '/manifest.json', revision: '1'},
+  {url: '/pages/home.html', revision: '1'},
+  {url: '/pages/about.html', revision: '1'},
+  {url: '/pages/contact.html', revision: '1'},
+  {url: '/pages/scorer.html', revision: '1'},
+  {url: '/pages/saved.html', revision: '1'},
   {url: '/css/materialize.min.css', revision: '1'},
   {url: '/css/style.css', revision: '1'},
   {url: '/js/materialize.min.js', revision: '1'},
@@ -96,7 +68,7 @@ workbox.routing.registerRoute(
 
 // Menyimpan cache dari JQuery
 workbox.routing.registerRoute(
-  /^http:\/\/code\.jquery\.com/,
+  /^https:\/\/code\.jquery\.com/,
   new workbox.strategies.StaleWhileRevalidate({
     cacheName: 'jquery-min-js',
   })
@@ -126,43 +98,6 @@ workbox.routing.registerRoute(
     ],
   })
 );
- 
-/*self.addEventListener("install", (event) => {
-    event.waitUntil(
-      caches.open(CACHE_NAME).then((cache) => cache.addAll(urlsToCache))
-    );
-});
-
-self.addEventListener("fetch", (event) => {
-    var base_url = "https://api.football-data.org/v2/";
-    if (event.request.url.indexOf(base_url) > -1) {
-      event.respondWith(
-        caches.open(CACHE_NAME).then((cache) => fetch(event.request).then((response) => {
-            cache.put(event.request.url, response.clone());
-            return response;
-          }))
-      );
-    } else {
-      event.respondWith(
-        caches.match(event.request, { ignoreSearch: true }).then(function(response) {
-          return response || fetch (event.request);
-        })
-      )
-    }
-});
-
-self.addEventListener("activate", (event) => {
-    event.waitUntil(
-      caches.keys().then((cacheNames) => Promise.all(
-          cacheNames.map((cacheName) => {
-              if (cacheName != CACHE_NAME) {
-                console.log("ServiceWorker: cache " + cacheName + " dihapus");
-                return caches.delete(cacheName);
-              }
-            })
-        ))
-    );
-});*/
 
 //push
 self.addEventListener('push', (event) => {
