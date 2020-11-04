@@ -1,0 +1,34 @@
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+main {
+    flex: 1 0 auto;
+}
+h2 {
+    text-align: center;
+}
+
+.loading-page::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    z-index: 10;
+    height: 3px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #8b1ae8;
+    animation: load-page ease-out 2s;
+}
+
+@keyframes load-page {
+    from {
+        width:0;
+    }
+    to {
+        width:100%;
+    }
+}
