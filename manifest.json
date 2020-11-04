@@ -3,7 +3,7 @@
     "short_name": "FootballPWA",
     "description": "Aplikasi News Football Reader PWA Ku",
     "start_url": "/index.html",
-    "display": "minimal-ui",
+    "display": "standalone",
     "orientation": "any",
     "background_color": "#00897B",
     "theme_color": "#00897B",
