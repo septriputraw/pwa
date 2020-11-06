@@ -64,12 +64,13 @@
     }
     //request push
     // Periksa fitur Notification API
-    if ("Notification" in window) {
-      requestPermission();
-    } else {
-      console.error("Browser tidak mendukung notifikasi.");
-    }
-    
+    navigator.serviceWorker.ready.then(() => {
+      if ("Notification" in window) {
+        requestPermission();
+      } else {
+        console.error("Browser tidak mendukung notifikasi.");
+      }
+    });
     // Meminta ijin menggunakan Notification API
     
     function requestPermission() {
