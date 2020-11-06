@@ -83,8 +83,8 @@ function getMatches() {
 function getTeamById() {
   return new Promise((resolve, reject) => {
     // Ambil nilai query parameter (?id=)
-    var urlParams = new URLSearchParams(window.location.search);
-    var idParam = urlParams.get("id");
+    let urlParams = new URLSearchParams(window.location.search);
+    let idParam = urlParams.get("id");
     
     if ("caches" in window) {
       caches.match(`${baseUrl}/teams/${idParam}`).then((response) => {
@@ -154,8 +154,8 @@ function getTeamById() {
 function getPlayersById() {
   return new Promise((resolve, reject) => {
     // Ambil nilai query parameter (?id=)
-    var urlParams = new URLSearchParams(window.location.search);
-    var idParam = urlParams.get("id");
+    let urlParams = new URLSearchParams(window.location.search);
+    let idParam = urlParams.get("id");
     if ("caches" in window) {
       caches.match(`${baseUrl}/players/${idParam}`).then((response) => {
         if (response) {
@@ -295,8 +295,8 @@ function getSavedArticles() {
 }
 
 function getSavedArticleById() {
-    var urlParams = new URLSearchParams(window.location.search);
-    var idParam = urlParams.get("id");
+    let urlParams = new URLSearchParams(window.location.search);
+    let idParam = urlParams.get("id");
     
     getById(idParam).then((article) => {
         articleHTML = '';
