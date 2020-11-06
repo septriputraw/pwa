@@ -11,19 +11,11 @@ workbox.precaching.precacheAndRoute([
   {url: '/team.html', revision: '1'},
   {url: '/player.html', revision: '1'},
   {url: '/manifest.json', revision: '1'},
-<<<<<<< HEAD
   {url: '/pages/about.html', revision: '1'},
   {url: '/pages/contact.html', revision: '1'},
   {url: '/pages/saved.html', revision: '1'},
   {url: '/pages/home.html', revision: '1'},
   {url: '/pages/scorer.html', revision: '1'},
-=======
-  {url: '/pages/home.html', revision: '1'},
-  {url: '/pages/about.html', revision: '1'},
-  {url: '/pages/contact.html', revision: '1'},
-  {url: '/pages/scorer.html', revision: '1'},
-  {url: '/pages/saved.html', revision: '1'},
->>>>>>> origin/master
   {url: '/css/materialize.min.css', revision: '1'},
   {url: '/css/style.css', revision: '1'},
   {url: '/js/materialize.min.js', revision: '1'},
